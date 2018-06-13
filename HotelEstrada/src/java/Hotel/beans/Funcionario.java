@@ -8,13 +8,17 @@ package Hotel.beans;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 /**
  *
  * @author Marciano
  */
 @Entity
+@Table(name="Funcionario")
 @Inheritance(strategy = InheritanceType.JOINED)
+@PrimaryKeyJoinColumn(name="idFuncionario", referencedColumnName="idPessoa")
 public class Funcionario extends Pessoa{
    private double salario;
    private int nivelAcesso;

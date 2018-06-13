@@ -6,12 +6,16 @@
 package Hotel.beans;
 
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 /**
  *
  * @author Marciano
  */
 @Entity
+@Table(name="Gerente")
+@PrimaryKeyJoinColumn(name="idGerente", referencedColumnName="idFuncionario")
 public class Gerente extends Funcionario{
    
 }

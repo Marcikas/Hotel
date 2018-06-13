@@ -29,5 +29,14 @@ public class GenericDAO<T> {
             em.persist(t);
             em.getTransaction().commit();
             em.close();
-        }       
+        }
+        
+        public List<T> consulta() throws SQLException {
+            EntityManager em = new JPAUtil().getEntityManager();
+            CriteriaQuery<T> query = em.getCriteriaBuilder().createQuery(classe);
+            query.select(query.from(classe));
+            List<T> lista = em.createQuery(query).getResultList();
+            em.close();
+            return lista;
+	}
 }
