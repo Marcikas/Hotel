@@ -13,12 +13,30 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Lista de pessoas cadastradas.</h1><br><br>
         
-        <ul>
-            <c:forEach var="pessoa" items="${pessoa}">
-                <h2><li> ${pessoa.id}: ${pessoa.nome}</li></h2>
-            </c:forEach>
-        </ul>
+        <div class="container"><br>
+            <h3>Pessoas cadastradas: </h3><br><br>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>                        
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="pessoa" items="${pessoa}">
+                        <tr>   
+                        <form action="Controller">
+                            <td> ${pessoa.id}</td>
+                            <td> ${pessoa.nome}</td>
+                            <td><button type="submit">Remover</button></td>
+                            <input type="hidden" name="id" value="${pessoa.id}">
+                            <input type="hidden" name="tarefa" value="Remover">                            
+                        </form>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table><br><br>             
+        </div>
     </body>
 </html>

@@ -34,9 +34,20 @@ public class GenericDAO<T> {
         public List<T> consulta() throws SQLException {
             EntityManager em = new JPAUtil().getEntityManager();
             CriteriaQuery<T> query = em.getCriteriaBuilder().createQuery(classe);
-            query.select(query.from(classe));
+            query.select(query.from(classe));            
             List<T> lista = em.createQuery(query).getResultList();
             em.close();
             return lista;
 	}
+        
+        public void remove(T t, Long id) throws SQLException {
+            EntityManager em = new JPAUtil().getEntityManager();
+            t = em.find(classe, id); 
+            em.getTransaction().begin();
+            em.remove(t);
+            em.getTransaction().commit();
+            em.close();
+        }
+        
+        
 }
