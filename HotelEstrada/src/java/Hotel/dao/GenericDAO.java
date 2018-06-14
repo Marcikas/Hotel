@@ -5,7 +5,6 @@
  */
 package Hotel.dao;
 
-
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -42,12 +41,20 @@ public class GenericDAO<T> {
         
         public void remove(T t, Long id) throws SQLException {
             EntityManager em = new JPAUtil().getEntityManager();
-            t = em.find(classe, id); 
+            t = em.getReference(classe, id);           
             em.getTransaction().begin();
             em.remove(t);
             em.getTransaction().commit();
             em.close();
-        }
+        }       
         
-        
+        // O METODO ABAIXO NÃO ESTÁ FUNCIONANDO
+        /* public void atualiza(T t, Long id) throws SQLException {
+            EntityManager em = new JPAUtil().getEntityManager();
+            em.getTransaction().begin();
+            t = em.find(classe , id);           
+            em.getTransaction().commit();
+            em.close();
+        }  */     
+       
 }

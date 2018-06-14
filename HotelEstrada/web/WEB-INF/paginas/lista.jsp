@@ -20,7 +20,8 @@
                 <thead class="thead-dark">
                     <tr>                        
                         <th scope="col">Id</th>
-                        <th scope="col">Nome</th>                        
+                        <th scope="col">Nome</th>  
+                        <th scope="col">CPF</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,9 +30,9 @@
                         <form action="Controller">
                             <td> ${pessoa.id}</td>
                             <td> ${pessoa.nome}</td>
-                            <td><button type="submit">Remover</button></td>
-                            <input type="hidden" name="id" value="${pessoa.id}">
-                            <input type="hidden" name="tarefa" value="Remover">                            
+                            <td> ${pessoa.cpf}</td>                           
+                            <td><a href="Controller?tarefa=Editar&id=<c:out value="${pessoa.id}"/>">Editar</a></td>
+                            <td><a href="Controller?tarefa=Remover&id=<c:out value="${pessoa.id}"/>">Remover</a></td>
                         </form>
                         </tr>
                     </c:forEach>

@@ -23,6 +23,7 @@ public class Remover implements Tarefa{
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
         Long id = Long.parseLong(req.getParameter("id"));
         Pessoa p = null;
+       
         try {
             new GenericDAO<Pessoa>(Pessoa.class).remove(p, id);
         } catch (SQLException ex) {
