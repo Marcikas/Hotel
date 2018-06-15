@@ -22,6 +22,7 @@ import javax.persistence.Table;
 public class Funcionario extends Pessoa{
    private double salario;
    private int nivelAcesso;
+   private String senha;
 
     public double getSalario() {
         return salario;
@@ -37,6 +38,14 @@ public class Funcionario extends Pessoa{
 
     public void setNivelAcesso(int nivelAcesso) {
         this.nivelAcesso = nivelAcesso;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
    

@@ -55,6 +55,5 @@ public class GenericDAO<T> {
             t = em.find(classe , id);           
             em.getTransaction().commit();
             em.close();
-        }  */     
-       
+        }  */    
 }

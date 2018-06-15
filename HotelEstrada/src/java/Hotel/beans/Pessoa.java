@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -28,7 +30,10 @@ public class Pessoa implements Serializable {
     private Long idPessoa = 0l;
     
     private String nome;
-    private String cpf;     
+    private String cpf; 
+    private String endereco;
+    @Temporal(TemporalType.DATE)
+    private java.util.Date dataNascimento;
     
     public Long getId() {
         return idPessoa;

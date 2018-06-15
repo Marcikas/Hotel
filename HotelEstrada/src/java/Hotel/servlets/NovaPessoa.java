@@ -30,7 +30,7 @@ public class NovaPessoa implements Tarefa {
                 Hospede h = new Hospede();
                 h.setNome(req.getParameter("nome"));
                 h.setCpf(req.getParameter("cpf"));
-                h.setPreferencia(req.getParameter("preferencia"));
+                h.setObservacao(req.getParameter("preferencia"));
                 try {
                     new GenericDAO(Hospede.class).adiciona(h);
                 }  catch (SQLException ex) {

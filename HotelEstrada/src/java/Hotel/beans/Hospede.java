@@ -19,14 +19,14 @@ import javax.persistence.Table;
 @Table(name="Hospede")
 @PrimaryKeyJoinColumn(name="idHospede", referencedColumnName="idPessoa")
 public class Hospede extends Pessoa{
-    private String preferencia;    
+    private String observacao;    
     
-    public String getPreferencia() {
-        return preferencia;
+    public String getObservacao() {
+        return observacao;
     }
 
-    public void setPreferencia(String preferencia) {
-        this.preferencia = preferencia;
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
     
     
