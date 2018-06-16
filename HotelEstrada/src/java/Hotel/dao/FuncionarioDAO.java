@@ -8,6 +8,8 @@ package Hotel.dao;
 import Hotel.beans.Funcionario;
 import java.sql.SQLException;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -22,12 +24,13 @@ public class FuncionarioDAO {
     }
     
     public Funcionario autentica(String email, String senha) throws SQLException {
-
         if (email == null || senha == null){
             return null;
         }
-        
-        Funcionario f = entityManager.find(Funcionario.class, email);
+       
+        TypedQuery<Funcionario> query = entityManager.createQuery("SELECT f FROM Funcionario f WHERE f.email = :email", Funcionario.class);
+        query.setParameter("email", email);        
+        Funcionario f = query.getSingleResult();
         
         if(f != null){
             if(f.getSenha().equals(senha)){
@@ -36,5 +39,5 @@ public class FuncionarioDAO {
             return null;
         }
         return null;
-    }
+    } 
 }

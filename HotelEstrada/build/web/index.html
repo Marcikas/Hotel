@@ -10,25 +10,31 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body>        
+        <h2>Funcionário faça seu login!</h2><br><br>
         <form action="Controller">
-            Nome: <input type="text" name="nome">
-            cpf: <input type="text" name="cpf">
-            preferencia: <input type="text" name="preferencia">
-            <select name="tipo">
-                <option value="hospede">Hospede</option>
-                <option value="recepcionista">Recepcionista</option>
-                <option value="gerente">Gerente</option>
-            </select>
-            <input type="hidden" name="tarefa" value="NovaPessoa">
-            <button type="submit">Enviar</button> 
+            Email: <input type="text" name="email">
+            Senha: <input type="password" name="senha">
+            <input type="hidden" name="tarefa" value="Login">
+            <button type="submit">Logar</button>
         </form>
         
-        <br><hr><br>
+        <br><br><hr><br><br>
         
+        <h2>Cadastrar funcionarios</h2><br><br>
         <form action="Controller">
-            <input type="hidden" name="tarefa" value="Lista">
-            <button type="submit">Ver Lista</button>
+            Nome: <input type="text" name="nome"><br>
+            cpf: <input type="text" name="cpf"><br>
+            endereço: <input type="text" name="endereco"><br>
+            Data de Nascimento: <input type="date" name="dataNascimento"><br> 
+            Email: <input type="email" name="email"> <br>
+            Senha: <input type="password" name="senha"> <br>
+            <select name="tipo">
+                <option value="gerente">Gerente</option>
+                <option value="recepcionista">Recepcionista</option>
+            </select><br>
+            <input type="hidden" name="tarefa" value="NovaPessoa">
+            <button type="submit">Enviar</button> 
         </form>
     </body>
 </html>

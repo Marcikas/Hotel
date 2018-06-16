@@ -20,9 +20,10 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.JOINED)
 @PrimaryKeyJoinColumn(name="idFuncionario", referencedColumnName="idPessoa")
 public class Funcionario extends Pessoa{
-   private double salario;
-   private int nivelAcesso;
-   private String senha;
+    private double salario;
+    private int nivelAcesso;
+    private String email;
+    private String senha;
 
     public double getSalario() {
         return salario;
@@ -48,5 +49,11 @@ public class Funcionario extends Pessoa{
         this.senha = senha;
     }
 
-   
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }   
 }

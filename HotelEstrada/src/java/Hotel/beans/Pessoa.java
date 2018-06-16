@@ -6,6 +6,7 @@
 package Hotel.beans;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,7 +34,7 @@ public class Pessoa implements Serializable {
     private String cpf; 
     private String endereco;
     @Temporal(TemporalType.DATE)
-    private java.util.Date dataNascimento;
+    private Date dataNascimento;
     
     public Long getId() {
         return idPessoa;
@@ -57,6 +58,22 @@ public class Pessoa implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
     
     
