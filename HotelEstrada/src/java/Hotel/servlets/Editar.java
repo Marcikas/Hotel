@@ -23,6 +23,7 @@ public class Editar implements Tarefa{
         Long id = Long.parseLong(req.getParameter("id"));
         String nome = req.getParameter("nome");
         String cpf = req.getParameter("cpf");
+        String endereco = req.getParameter("endereco");
         
         if(nome == null || cpf == null){
             req.setAttribute("id", id);
@@ -35,6 +36,7 @@ public class Editar implements Tarefa{
         Pessoa p = em.find(Pessoa.class , id);
         p.setNome(nome);
         p.setCpf(cpf);
+        p.setEndereco(endereco);        
         em.getTransaction().commit();
         em.close();
         

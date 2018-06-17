@@ -18,6 +18,7 @@
         <form action="Controller">
             Nome: <input type="text" name="nome" value="<c:out value="${pessoa.nome}"/>">
             cpf: <input type="text" name="cpf" value="<c:out value="${pessoa.cpf}"/>">
+            Endereço: <input type="text" name="cpf" value="<c:out value="${pessoa.endereco}"/>">
             <input type="hidden" name="id" value="${id}">
             <input type="hidden" name="tarefa" value="Editar">
             <button type="submit">Enviar</button> 

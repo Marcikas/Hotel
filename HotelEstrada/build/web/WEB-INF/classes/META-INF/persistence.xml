@@ -4,24 +4,25 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>Hotel.beans.Pessoa</class>
     <class>Hotel.beans.Hospede</class>
+    <class>Hotel.beans.Produto</class>
+    <class>Hotel.beans.Predio</class>
+    <class>Hotel.beans.Apartamento</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hotel"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value=""/>
-      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>      
-      
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
       <!--  Configurações específicas do Hibernate  -->
-        
-        <!--  Configuração do Dialeto SQL  -->
-        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
-        <!--  Configuração de auto geração/atualização das tabelas a partir das classes beans  -->
-        <property name="hibernate.hbm2ddl.auto" value="update" />
-        <!--  Configuração de para mostrar o SQL gerado  -->
-        <property name="hibernate.show_sql" value="true"/>
-        <!--  Configuração para formatar o SQL para exibição -->
-        <property name="hibernate.format_sql" value="true"/>
+      <!--  Configuração do Dialeto SQL  -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+      <!--  Configuração de auto geração/atualização das tabelas a partir das classes beans  -->
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <!--  Configuração de para mostrar o SQL gerado  -->
+      <property name="hibernate.show_sql" value="true"/>
+      <!--  Configuração para formatar o SQL para exibição -->
+      <property name="hibernate.format_sql" value="true"/>
     </properties>
   </persistence-unit>
 </persistence>
