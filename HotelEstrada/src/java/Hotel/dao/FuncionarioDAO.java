@@ -23,6 +23,7 @@ public class FuncionarioDAO {
         entityManager = new JPAUtil().getEntityManager();
     }
     
+    // EFETUA O LOGIN DO FUNCIONARIO
     public Funcionario autentica(String email, String senha) throws SQLException {
         if (email == null || senha == null){
             return null;
@@ -39,5 +40,7 @@ public class FuncionarioDAO {
             return null;
         }
         return null;
-    } 
+    }
+    
+    
 }
