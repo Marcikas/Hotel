@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/dao/FuncionarioDAO.java</file>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/web/WEB-INF/paginas/edit.jsp</file>
+            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/beans/Hospedagem.java</file>
+            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/beans/Consumo.java</file>
             <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/beans/Produto.java</file>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/beans/Apartamento.java</file>
             <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/dao/GenericDAO.java</file>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/servlets/Editar.java</file>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/beans/Predio.java</file>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/web/index.html</file>
+            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/beans/Reserva.java</file>
+            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/beans/Teste.java</file>
+            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/web/WEB-INF/paginas/dashboard.jsp</file>
         </group>
     </open-files>
 </project-private>

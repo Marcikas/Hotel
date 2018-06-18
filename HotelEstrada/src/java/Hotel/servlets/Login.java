@@ -5,9 +5,14 @@
  */
 package Hotel.servlets;
 
+import Hotel.beans.Apartamento;
+import Hotel.beans.Estacionamento;
 import Hotel.beans.Funcionario;
+import Hotel.beans.Hospede;
 import Hotel.dao.FuncionarioDAO;
+import Hotel.dao.GenericDAO;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +29,8 @@ public class Login implements Tarefa{
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
         String email = req.getParameter("email");
         String senha = req.getParameter("senha");
-        Funcionario f = null;
+        Funcionario f = null;        
+        
         try {
             f = new FuncionarioDAO().autentica(email, senha);
         } catch (ClassNotFoundException ex) {
@@ -37,8 +43,23 @@ public class Login implements Tarefa{
             return "WEB-INF/paginas/erro.jsp";
         }
         
+        List<Apartamento> apt = null;
+        List<Hospede> hospede = null;
+        List<Estacionamento> est = null;
+        
+        try {
+            apt = new GenericDAO<Apartamento>(Apartamento.class).getTodos();
+            hospede = new GenericDAO<Hospede>(Hospede.class).getTodos();
+            est = new GenericDAO<Estacionamento>(Estacionamento.class).getTodos();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        // atribuindo valores de sessão
         HttpSession session = req.getSession();
         session.setAttribute("funcionarioLogado", f);
+        session.setAttribute("apartamento", apt);
+        session.setAttribute("hospede", hospede);
+        session.setAttribute("estacionamento", est);
         return "WEB-INF/paginas/dashboard.jsp";
     }
     

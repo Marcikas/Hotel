@@ -30,7 +30,7 @@ public class GenericDAO<T> {
             em.close();
         }
         
-        public List<T> consultaTodos() throws SQLException {
+        public List<T> getTodos() throws SQLException {
             EntityManager em = new JPAUtil().getEntityManager();
             CriteriaQuery<T> query = em.getCriteriaBuilder().createQuery(classe);
             query.select(query.from(classe));            
@@ -55,5 +55,10 @@ public class GenericDAO<T> {
             t = em.find(classe , id);           
             em.getTransaction().commit();
             em.close();
-        }  */    
+        }  */  
+        public T getById(Long id){
+            EntityManager em = new JPAUtil().getEntityManager();
+            T t = em.find(classe, id);
+            return t;
+        }
 }
