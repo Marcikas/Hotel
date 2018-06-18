@@ -25,11 +25,11 @@ public class Produto implements Serializable {
     private String nomeProduto;
     private double valorProduto;
     
-    public Long getId() {
+    public Long getIdProduto() {
         return idProduto;
     }
 
-    public void setId(Long id) {
+    public void setIdProduto(Long id) {
         this.idProduto = id;
     }
 

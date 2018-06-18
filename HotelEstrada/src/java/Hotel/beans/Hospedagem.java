@@ -9,11 +9,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -34,10 +37,11 @@ public class Hospedagem implements Serializable {
     
     @OneToOne
     @JoinColumn(name="idReserva", nullable = false)
-    private Reserva reserva;
+    private Reserva reserva;    
     
-    @OneToMany
-    private List<Produto> consumo;
+    @OneToOne
+    @JoinColumn(name="idConsumo", nullable = true)
+    private Consumo consumo;
     
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataEntrada;
@@ -61,11 +65,11 @@ public class Hospedagem implements Serializable {
         this.reserva = reserva;
     }
 
-    public List<Produto> getConsumo() {
+    public Consumo getConsumo() {
         return consumo;
     }
 
-    public void setConsumo(List<Produto> consumo) {
+    public void setConsumo(Consumo consumo) {
         this.consumo = consumo;
     }
 

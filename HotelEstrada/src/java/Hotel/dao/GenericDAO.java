@@ -30,7 +30,7 @@ public class GenericDAO<T> {
             em.close();
         }
         
-        public List<T> consulta() throws SQLException {
+        public List<T> consultaTodos() throws SQLException {
             EntityManager em = new JPAUtil().getEntityManager();
             CriteriaQuery<T> query = em.getCriteriaBuilder().createQuery(classe);
             query.select(query.from(classe));            

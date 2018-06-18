@@ -35,5 +35,29 @@
         </form>
         
         <br><br><hr><br><br>
+        
+        <h2>Fazer reserva</h2><br><br>
+        <form action="Controller">
+            Hospede cadastrado
+            <select name="hospede">
+                <c:forEach var="hospede" items="${hospede}">
+                    <option value="${hospede.id}">${hospede.nome}</option>                    
+                </c:forEach>
+            </select>
+            Vaga do estacionamento(opcional)
+            <select name="estacionamento">
+                <c:forEach var="est" items="${estacionamento}">
+                    <option value="${est.id}">${est.id}</option>                    
+                </c:forEach>
+            </select>
+            Apartamento
+            <select name="apartamento">
+                <c:forEach var="apt" items="${apartamento}">
+                    <option value="${apt.id}">${apt.predio.nomePredio} ${apt.andarQuarto} ${apt.numeroQuarto}</option>                    
+                </c:forEach>
+            </select>
+            <input type="hidden" name="recepcionista" value="${funcionarioLogado.id}">
+            <input type="hidden" name="tarefa" value="NovaReserva">
+            <button type="submit">Enviar</button>
     </body>
 </html>

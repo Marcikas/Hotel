@@ -10,6 +10,7 @@
     <class>Hotel.beans.Estacionamento</class>
     <class>Hotel.beans.Reserva</class>
     <class>Hotel.beans.Hospedagem</class>
+    <class>Hotel.beans.Consumo</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hotel"/>

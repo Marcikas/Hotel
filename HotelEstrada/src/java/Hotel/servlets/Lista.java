@@ -24,7 +24,7 @@ public class Lista implements Tarefa{
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
         List<Pessoa> pessoas = null;
         try {
-            pessoas = new GenericDAO<Pessoa>(Pessoa.class).consulta();
+            pessoas = new GenericDAO<Pessoa>(Pessoa.class).consultaTodos();
         } catch (SQLException ex) {
                     Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
         }

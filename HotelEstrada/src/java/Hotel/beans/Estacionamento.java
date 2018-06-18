@@ -7,6 +7,7 @@ package Hotel.beans;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,9 +26,11 @@ public class Estacionamento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVaga;
     
+    @Column(nullable = true)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataEntrada;
     
+    @Column(nullable = true)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataSaida;
     
