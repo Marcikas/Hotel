@@ -18,17 +18,17 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Marciano
  */
-public class Lista implements Tarefa{  
-
+public class Lista implements Tarefa{    
     @Override
-    public String executa(HttpServletRequest req, HttpServletResponse resp) {
+    public String executa(HttpServletRequest req, HttpServletResponse resp) {       
         List<Pessoa> pessoas = null;
-        try {
+        
+        try {           
             pessoas = new GenericDAO<Pessoa>(Pessoa.class).getTodos();
-        } catch (SQLException ex) {
-                    Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        req.setAttribute("pessoa", pessoas);
+            } catch (SQLException ex) {
+            Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+            }        
+        req.setAttribute("pessoa", pessoas);       
         return "/WEB-INF/paginas/lista.jsp";
     }                   
 }

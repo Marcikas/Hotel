@@ -48,14 +48,6 @@ public class GenericDAO<T> {
             em.close();
         }       
         
-        // O METODO ABAIXO NÃO ESTÁ FUNCIONANDO
-        /* public void atualiza(T t, Long id) throws SQLException {
-            EntityManager em = new JPAUtil().getEntityManager();
-            em.getTransaction().begin();
-            t = em.find(classe , id);           
-            em.getTransaction().commit();
-            em.close();
-        }  */  
         public T getById(Long id){
             EntityManager em = new JPAUtil().getEntityManager();
             T t = em.find(classe, id);

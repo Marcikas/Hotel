@@ -61,6 +61,12 @@ public class Login implements Tarefa{
         session.setAttribute("hospede", hospede);
         session.setAttribute("estacionamento", est);
         return "WEB-INF/paginas/dashboard.jsp";
-    }
+    }    
     
+    // Faz o logout e destroi a sessão ativa
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession(false); 
+        request.getSession().invalidate();
+        return "index.html";
+    }
 }

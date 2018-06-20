@@ -13,7 +13,7 @@
         <title>Hotel Estrada Feliz - Dashboard</title>
     </head>
     <body>
-        <p>Logado como funcionario ${funcionarioLogado.nome} <a href="Controller?tarefa=Logout">(Clique aqui</a> para deslogar)</p>
+        <p>Logado como funcionario ${funcionarioLogado.nome} <a href="Controller?tarefa=Login&metodo=logout">(Clique aqui</a> para deslogar)</p>
         <br><br><hr><br><br>
         <h2>Cadastrar hospedes</h2><br><br>
         <form action="Controller">
@@ -59,5 +59,16 @@
             <input type="hidden" name="recepcionista" value="${funcionarioLogado.id}">
             <input type="hidden" name="tarefa" value="NovaReserva">
             <button type="submit">Enviar</button>
+            
+            <br><br><hr><br><br>
+            
+            <h3>Reservas</h3><br><br>
+            
+            <form action="Controller">
+                <input type="hidden" name="tarefa" value="ListaTeste">
+                <input type="hidden" name="" value="ListaTeste">
+                <button type="submit">Consultar reservas</button>
+            </form>
+        <br><hr><br>
     </body>
 </html>

@@ -30,7 +30,7 @@ public class Remover implements Tarefa{
                     Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return "/WEB-INF/paginas/lista.jsp";
+        return "/WEB-INF/paginas/dashboard.jsp";
     }
     
 }

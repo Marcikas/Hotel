@@ -22,6 +22,7 @@
                         <th scope="col">Id</th>
                         <th scope="col">Nome</th>  
                         <th scope="col">CPF</th>
+                        <th scope="col">Endereço</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,8 +31,9 @@
                         <form action="Controller">
                             <td> ${pessoa.id}</td>
                             <td> ${pessoa.nome}</td>
-                            <td> ${pessoa.cpf}</td>                           
-                            <td><a href="Controller?tarefa=Editar&id=<c:out value="${pessoa.id}"/>">Editar</a></td>
+                            <td> ${pessoa.cpf}</td>     
+                            <td> ${pessoa.endereco}</td>
+                            <td><a href="Controller?tarefa=Editar&metodo=getEdit&id=<c:out value="${pessoa.id}"/>">Editar</a></td>
                             <td><a href="Controller?tarefa=Remover&id=<c:out value="${pessoa.id}"/>">Remover</a></td>
                         </form>
                         </tr>

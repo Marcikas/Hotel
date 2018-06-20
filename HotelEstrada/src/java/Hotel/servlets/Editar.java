@@ -8,6 +8,10 @@ package Hotel.servlets;
 import Hotel.beans.Pessoa;
 import Hotel.dao.GenericDAO;
 import Hotel.dao.JPAUtil;
+import Hotel.dao.PessoaDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,21 +29,21 @@ public class Editar implements Tarefa{
         String cpf = req.getParameter("cpf");
         String endereco = req.getParameter("endereco");
         
-        if(nome == null || cpf == null){
-            req.setAttribute("id", id);
-            return "/WEB-INF/paginas/edit.jsp";
-        }     
+        try {            
+            new PessoaDAO().atualiza(id, nome, cpf, endereco);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        // método genérico para ATUALIZAR
-        EntityManager em = new JPAUtil().getEntityManager();
-        em.getTransaction().begin();
-        Pessoa p = em.find(Pessoa.class , id);
-        p.setNome(nome);
-        p.setCpf(cpf);
-        p.setEndereco(endereco);        
-        em.getTransaction().commit();
-        em.close();
-        
-        return "index.html";
+        return "WEB-INF/paginas/dashboard.jsp";
     }    
+    
+    // Redireciona os parametros da respectiva pessoa para a tela de edição
+    public String getEdit(HttpServletRequest req, HttpServletResponse resp){
+         Long id = Long.parseLong(req.getParameter("id"));
+         Pessoa p = new GenericDAO<Pessoa>(Pessoa.class).getById(id);
+         req.setAttribute("pessoa", p);
+         req.setAttribute("id", id);
+         return "/WEB-INF/paginas/edit.jsp";
+    }
 }
