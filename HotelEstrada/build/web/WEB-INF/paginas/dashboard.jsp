@@ -64,11 +64,7 @@
             
             <h3>Reservas</h3><br><br>
             
-            <form action="Controller">
-                <input type="hidden" name="tarefa" value="ListaTeste">
-                <input type="hidden" name="" value="ListaTeste">
-                <button type="submit">Consultar reservas</button>
-            </form>
+            <a href="Controller?tarefa=Lista&metodo=getReservas">Consultar reservas</a>
         <br><hr><br>
     </body>
 </html>

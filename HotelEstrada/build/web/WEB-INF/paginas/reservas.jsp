@@ -28,11 +28,11 @@
                     <c:forEach var="reserva" items="${reservas}">
                         <tr>   
                         <form action="Controller">
-                            <td> ${reserva.apartamento.predio.nomePredio} ${reserva.apartamento.andarQuarto} $reserva.apartamento.numeroQuarto</td>
+                            <td> ${reserva.apartamento.predio.nomePredio} ${reserva.apartamento.andarQuarto} ${reserva.apartamento.numeroQuarto}</td>
                             <td> ${reserva.hospede.nome}</td>
                             <td> ${reserva.estacionamento.idVaga}</td>
                             <td> ${reserva.recepcionista.nome}</td>                           
-                            <td><a href="Controller?tarefa=NovaHospedagem&id=<c:out value="${reserva.id}"/>">Validar</a></td>                            
+                            <td><a href="Controller?tarefa=NovaHospedagem&id=<c:out value="${reserva.idReserva}"/>">Validar</a></td>                            
                         </form>
                         </tr>
                     </c:forEach>
