@@ -64,7 +64,7 @@
             
             <h3>Reservas</h3><br><br>
             
-            <a href="Controller?tarefa=Lista&metodo=getReservas">Consultar reservas</a>
+            <a href="Controller?tarefa=NovaReserva&metodo=getReservas">Consultar reservas</a>
         <br><hr><br>
     </body>
 </html>

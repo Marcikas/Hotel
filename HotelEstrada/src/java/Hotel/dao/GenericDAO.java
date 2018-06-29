@@ -28,7 +28,7 @@ public class GenericDAO<T> {
         public void adiciona(T t) throws SQLException{
             EntityManager em = new JPAUtil().getEntityManager();
             em.getTransaction().begin();
-            em.persist(t);
+            em.merge(t);
             em.getTransaction().commit();
             em.close();
         }
@@ -62,7 +62,7 @@ public class GenericDAO<T> {
             CriteriaQuery<T> query = em.getCriteriaBuilder().createQuery(classe);
             Root<T> from = query.from(classe);
             query.select(from);
-            query.where(em.getCriteriaBuilder().equal(from.get("disponibilidade"), true));
+            query.where(em.getCriteriaBuilder().equal(from.get("disponibilidade"), 1));
             List<T> lista = em.createQuery(query).getResultList();
             em.close();
             return lista;
