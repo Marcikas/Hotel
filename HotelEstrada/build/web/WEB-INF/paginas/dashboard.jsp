@@ -56,6 +56,10 @@
                     <option value="${apt.idApartamento}">${apt.predio.nomePredio} ${apt.andarQuarto}°Andar quarto ${apt.numeroQuarto}</option>                    
                 </c:forEach>
             </select>
+            
+            <span>Clique aqui para fazer o check in: </span>
+            Data de Entrada: <input type="date" name="dataEntrada">
+            Data de Saída: <input type="date" name="dataSaida">
             <input type="hidden" name="recepcionista" value="${funcionarioLogado.id}">
             <input type="hidden" name="tarefa" value="NovaReserva">
             <button type="submit">Enviar</button>
