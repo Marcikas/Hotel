@@ -13,10 +13,7 @@ import Hotel.beans.Recepcionista;
 import Hotel.beans.Reserva;
 import Hotel.dao.GenericDAO;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -45,10 +42,15 @@ public class NovaReserva implements Tarefa {
         Date endDate = null;
 
         Apartamento apt = new GenericDAO<Apartamento>(Apartamento.class).getById(idApt);
+        apt.setDisponibilidade(false);        
+       
         Hospede hospede = new GenericDAO<Hospede>(Hospede.class).getById(idHospede);
+        
         Estacionamento est = new GenericDAO<Estacionamento>(Estacionamento.class).getById(idEst);
-        Recepcionista recep = new GenericDAO<Recepcionista>(Recepcionista.class).getById(idRecep);
-
+        est.setDisponibilidade(false);
+        
+        Recepcionista recep = new GenericDAO<Recepcionista>(Recepcionista.class).getById(idRecep);        
+        
         Reserva reserva = new Reserva();
         reserva.setApartamento(apt);
         reserva.setHospede(hospede);
@@ -71,22 +73,51 @@ public class NovaReserva implements Tarefa {
             System.out.println("Quantidade de Dias: " + diarias / 86400);
             System.out.println("Valor a ser pago pelas diarias: " + valorTotal);
             new GenericDAO<Reserva>(Reserva.class).adiciona(reserva);
-            Hospedagem hospedagem = new Hospedagem();
-            hospedagem.setReserva(reserva);
-            hospedagem.setConsumo(null);
-            hospedagem.setDataEntrada(startDate);
-            hospedagem.setDataSaida(endDate);
-            hospedagem.setValorTotal(valorTotal);
-            long idReserva = reserva.getIdReserva();
-            new GenericDAO<Hospedagem>(Hospedagem.class).adiciona(hospedagem);
-
-        } catch (ParseException ex) {
-            Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
+            new GenericDAO<Apartamento>(Apartamento.class).adiciona(apt);
+            new GenericDAO<Estacionamento>(Estacionamento.class).adiciona(est);
         } catch (SQLException ex) {
             Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        }        
+        
         return "WEB-INF/paginas/dashboard.jsp";
     }
-
+    
+    public String validarReserva(HttpServletRequest req, HttpServletResponse resp){
+        Long id = Long.parseLong(req.getParameter("id"));
+        Reserva r = null;
+        return "WEB-INF/paginas/dashboard.jsp";
+    }
+    
+    public String removerReserva(HttpServletRequest req, HttpServletResponse resp) {
+        Long id = Long.parseLong(req.getParameter("id"));
+        Reserva r = new GenericDAO<Reserva>(Reserva.class).getById(id);  
+        
+        Apartamento apt = new GenericDAO<Apartamento>(Apartamento.class).getById(r.getApartamento().getIdApartamento());
+        apt.setDisponibilidade(true);        
+       
+        Estacionamento est = new GenericDAO<Estacionamento>(Estacionamento.class).getById(r.getEstacionamento().getIdVaga());
+        est.setDisponibilidade(true);
+        
+        try {
+            new GenericDAO<Reserva>(Reserva.class).remove(r, id);
+            new GenericDAO<Apartamento>(Apartamento.class).adiciona(apt);
+            new GenericDAO<Estacionamento>(Estacionamento.class).adiciona(est);
+        } catch (SQLException ex) {
+                Logger.getLogger(Remover.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return "/WEB-INF/paginas/dashboard.jsp";
+    }
+    
+    public String getReservas(HttpServletRequest req, HttpServletResponse resp) {       
+        List<Reserva> reservas = null;
+        
+        try {           
+            reservas = new GenericDAO<Reserva>(Reserva.class).getTodos();
+            } catch (SQLException ex) {
+            Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+            }        
+        req.setAttribute("reservas", reservas);       
+        return "/WEB-INF/paginas/reservas.jsp";
+    }              
 }

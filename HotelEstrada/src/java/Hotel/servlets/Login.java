@@ -48,9 +48,9 @@ public class Login implements Tarefa{
         List<Estacionamento> est = null;
         
         try {
-            apt = new GenericDAO<Apartamento>(Apartamento.class).getTodos();
+            apt = new GenericDAO<Apartamento>(Apartamento.class).getDisponiveis();
             hospede = new GenericDAO<Hospede>(Hospede.class).getTodos();
-            est = new GenericDAO<Estacionamento>(Estacionamento.class).getTodos();
+            est = new GenericDAO<Estacionamento>(Estacionamento.class).getDisponiveis();
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }

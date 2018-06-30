@@ -31,17 +31,5 @@ public class Lista implements Tarefa{
             }        
         req.setAttribute("pessoa", pessoas);       
         return "/WEB-INF/paginas/lista.jsp";
-    }         
-    
-    public String getReservas(HttpServletRequest req, HttpServletResponse resp) {       
-        List<Reserva> reservas = null;
-        
-        try {           
-            reservas = new GenericDAO<Reserva>(Reserva.class).getTodos();
-            } catch (SQLException ex) {
-            Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
-            }        
-        req.setAttribute("reservas", reservas);       
-        return "/WEB-INF/paginas/reservas.jsp";
-    }              
+    }   
 }

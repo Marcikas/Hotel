@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/servlets/Lista.java</file>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/src/java/Hotel/servlets/Controller.java</file>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/web/WEB-INF/paginas/reservas.jsp</file>
-            <file>file:/C:/Users/Marciano/Desktop/Hotel/HotelEstrada/web/WEB-INF/paginas/dashboard.jsp</file>
+            <file>file:/V:/Hotel/HotelEstrada/src/java/Hotel/beans/Estacionamento.java</file>
+            <file>file:/V:/Hotel/HotelEstrada/src/java/Hotel/servlets/Lista.java</file>
+            <file>file:/V:/Hotel/HotelEstrada/web/WEB-INF/paginas/dashboard.jsp</file>
+            <file>file:/V:/Hotel/HotelEstrada/web/WEB-INF/paginas/reservas.jsp</file>
         </group>
     </open-files>
 </project-private>
