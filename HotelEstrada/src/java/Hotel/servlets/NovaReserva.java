@@ -13,6 +13,10 @@ import Hotel.beans.Recepcionista;
 import Hotel.beans.Reserva;
 import Hotel.dao.GenericDAO;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -77,7 +81,9 @@ public class NovaReserva implements Tarefa {
             new GenericDAO<Estacionamento>(Estacionamento.class).adiciona(est);
         } catch (SQLException ex) {
             Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        } catch (ParseException ex) {        
+            Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return "WEB-INF/paginas/dashboard.jsp";
     }
