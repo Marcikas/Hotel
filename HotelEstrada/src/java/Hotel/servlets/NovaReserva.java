@@ -64,17 +64,20 @@ public class NovaReserva implements Tarefa {
             endDate = df.parse(dataSaida);
             epochSaida = endDate.getTime() / 1000;
 
-            long diarias = epochSaida - epochEntrada;
-            
-            long valorTotal = diarias * 200;
+            long diarias = (epochSaida - epochEntrada)/86400;
+
+            long valorTotal = (diarias * 200);
 
             System.out.println("Quantidade de Dias: " + diarias / 86400);
+            System.out.println("Valor a ser pago pelas diarias: " + valorTotal);
+            new GenericDAO<Reserva>(Reserva.class).adiciona(reserva);
             Hospedagem hospedagem = new Hospedagem();
             hospedagem.setReserva(reserva);
             hospedagem.setConsumo(null);
             hospedagem.setDataEntrada(startDate);
             hospedagem.setDataSaida(endDate);
             hospedagem.setValorTotal(valorTotal);
+            long idReserva = reserva.getIdReserva();
             new GenericDAO<Hospedagem>(Hospedagem.class).adiciona(hospedagem);
 
         } catch (ParseException ex) {
@@ -83,11 +86,6 @@ public class NovaReserva implements Tarefa {
             Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        try {
-            new GenericDAO<Reserva>(Reserva.class).adiciona(reserva);
-        } catch (SQLException ex) {
-            Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
-        }
         return "WEB-INF/paginas/dashboard.jsp";
     }
 
