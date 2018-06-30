@@ -47,7 +47,7 @@
             Vaga do estacionamento(opcional)
             <select name="estacionamento">
                 <c:forEach var="est" items="${estacionamento}">
-                    <option value="${est.idVaga}">${est.idVaga}</option>                    
+                        <option value="${est.idVaga}">${est.idVaga}</option>                    
                 </c:forEach>
             </select>
             Apartamento

@@ -46,23 +46,25 @@ public class NovaReserva implements Tarefa {
         Date endDate = null;
 
         Apartamento apt = new GenericDAO<Apartamento>(Apartamento.class).getById(idApt);
-        apt.setDisponibilidade(false);        
-       
+        apt.setDisponibilidade(false);
+
         Hospede hospede = new GenericDAO<Hospede>(Hospede.class).getById(idHospede);
-        
-        Estacionamento est = new GenericDAO<Estacionamento>(Estacionamento.class).getById(idEst);
-        est.setDisponibilidade(false);
-        
-        Recepcionista recep = new GenericDAO<Recepcionista>(Recepcionista.class).getById(idRecep);        
-        
-        Reserva reserva = new Reserva();
-        reserva.setApartamento(apt);
-        reserva.setHospede(hospede);
-        reserva.setEstacionamento(est);
-        reserva.setRecepcionista(recep);
-        reserva.setStatus(true);
 
         try {
+            Estacionamento est = new GenericDAO<Estacionamento>(Estacionamento.class).getById(idEst);
+            est.setDisponibilidade(false);
+
+            Recepcionista recep = new GenericDAO<Recepcionista>(Recepcionista.class).getById(idRecep);
+            Reserva reserva = new Reserva();
+            reserva.setApartamento(apt);
+            reserva.setHospede(hospede);
+            reserva.setEstacionamento(est);
+            reserva.setRecepcionista(recep);
+            reserva.setStatus(true);
+
+            new GenericDAO<Reserva>(Reserva.class).adiciona(reserva);
+            new GenericDAO<Apartamento>(Apartamento.class).adiciona(apt);
+            new GenericDAO<Estacionamento>(Estacionamento.class).adiciona(est);
             long epochEntrada;
             long epochSaida;
             startDate = df.parse(dataEntrada);
@@ -70,60 +72,58 @@ public class NovaReserva implements Tarefa {
             endDate = df.parse(dataSaida);
             epochSaida = endDate.getTime() / 1000;
 
-            long diarias = (epochSaida - epochEntrada)/86400;
+            long diarias = (epochSaida - epochEntrada) / 86400;
 
             long valorTotal = (diarias * 200);
 
             System.out.println("Quantidade de Dias: " + diarias / 86400);
             System.out.println("Valor a ser pago pelas diarias: " + valorTotal);
-            new GenericDAO<Reserva>(Reserva.class).adiciona(reserva);
-            new GenericDAO<Apartamento>(Apartamento.class).adiciona(apt);
-            new GenericDAO<Estacionamento>(Estacionamento.class).adiciona(est);
+
         } catch (SQLException ex) {
             Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {        
+        } catch (ParseException ex) {
             Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return "WEB-INF/paginas/dashboard.jsp";
     }
-    
-    public String validarReserva(HttpServletRequest req, HttpServletResponse resp){
+
+    public String validarReserva(HttpServletRequest req, HttpServletResponse resp) {
         Long id = Long.parseLong(req.getParameter("id"));
         Reserva r = null;
         return "WEB-INF/paginas/dashboard.jsp";
     }
-    
+
     public String removerReserva(HttpServletRequest req, HttpServletResponse resp) {
         Long id = Long.parseLong(req.getParameter("id"));
-        Reserva r = new GenericDAO<Reserva>(Reserva.class).getById(id);  
-        
+        Reserva r = new GenericDAO<Reserva>(Reserva.class).getById(id);
+
         Apartamento apt = new GenericDAO<Apartamento>(Apartamento.class).getById(r.getApartamento().getIdApartamento());
-        apt.setDisponibilidade(true);        
-       
+        apt.setDisponibilidade(true);
+
         Estacionamento est = new GenericDAO<Estacionamento>(Estacionamento.class).getById(r.getEstacionamento().getIdVaga());
         est.setDisponibilidade(true);
-        
+
         try {
             new GenericDAO<Reserva>(Reserva.class).remove(r, id);
             new GenericDAO<Apartamento>(Apartamento.class).adiciona(apt);
             new GenericDAO<Estacionamento>(Estacionamento.class).adiciona(est);
         } catch (SQLException ex) {
-                Logger.getLogger(Remover.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Remover.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return "/WEB-INF/paginas/dashboard.jsp";
     }
-    
-    public String getReservas(HttpServletRequest req, HttpServletResponse resp) {       
+
+    public String getReservas(HttpServletRequest req, HttpServletResponse resp) {
         List<Reserva> reservas = null;
-        
-        try {           
+
+        try {
             reservas = new GenericDAO<Reserva>(Reserva.class).getTodos();
-            } catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
-            }        
-        req.setAttribute("reservas", reservas);       
+        }
+        req.setAttribute("reservas", reservas);
         return "/WEB-INF/paginas/reservas.jsp";
-    }              
+    }
 }
