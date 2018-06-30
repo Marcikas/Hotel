@@ -34,6 +34,12 @@
             <button type="submit">Lista de pessoas</button>
         </form>
         
+        <form action="Controller">
+            <input type="hidden" name="tarefa" value="Lista">
+            <input type="hidden" name="metodo" value="atualizaSessao">
+            <button type="submit">Atualizar Sessão</button>
+        </form>
+        
         <br><br><hr><br><br>
         
         <h2>Fazer reserva</h2><br><br>
@@ -70,5 +76,9 @@
             
             <a href="Controller?tarefa=NovaReserva&metodo=getReservas">Consultar reservas</a>
         <br><hr><br>
+        
+        <h2>Estacionamento</h2><br><br>
+        
+        <a href="Controller?tarefa=Estacionamentos&metodo=redirect">Pagina de estacionamento</a>
     </body>
 </html>
