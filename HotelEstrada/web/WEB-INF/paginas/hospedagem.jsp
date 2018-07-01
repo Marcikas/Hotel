@@ -5,22 +5,26 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <meta http-equiv="Content-Style-Type" content="text/css">
         <title>Hospedagem</title>
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <h1> Validação de Hospedagem</h1>
-        
+
         <form action="Controller">
             <span>Clique aqui para fazer o check in: </span>
             Data de Entrada <input type="date" name="dataEntrada">
-            
+
             <span>Clique aqui para fazer o check out: </span>
             Data de Saída: <input type="date" name="dataSaida">
-            
+
             <span>Digite aqui o valor da diária: </span>
             <input type="number" name="diaria">
             <input type="hidden" value="NovaHospedagem" name="tarefa">
