@@ -47,7 +47,7 @@
             Vaga do estacionamento(opcional)
             <select name="estacionamento">
                 <c:forEach var="est" items="${estacionamento}">
-                        <option value="${est.idVaga}">${est.idVaga}</option>                    
+                    <option value="${est.idVaga}">${est.idVaga}</option>                    
                 </c:forEach>
             </select>
             Apartamento
@@ -57,9 +57,6 @@
                 </c:forEach>
             </select>
             
-            <span>Clique aqui para fazer o check in: </span>
-            Data de Entrada: <input type="date" name="dataEntrada">
-            Data de Saída: <input type="date" name="dataSaida">
             <input type="hidden" name="recepcionista" value="${funcionarioLogado.id}">
             <input type="hidden" name="tarefa" value="NovaReserva">
             <button type="submit">Enviar</button>
