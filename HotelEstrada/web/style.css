@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 body,html{
-    background-color: black;
+    background-color: graytext;
 }
 span{
     color:blue;
