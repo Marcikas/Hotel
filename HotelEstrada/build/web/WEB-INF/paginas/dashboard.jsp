@@ -46,20 +46,24 @@
         <form action="Controller">
             Hospede cadastrado
             <select name="hospede">
-                <c:forEach var="hospede" items="${hospede}">
+                <c:forEach var="hospede" items="${hospede}">                    
                     <option value="${hospede.id}">${hospede.nome}</option>                    
                 </c:forEach>
             </select>
             Vaga do estacionamento(opcional)
             <select name="estacionamento">
                 <c:forEach var="est" items="${estacionamento}">
-                        <option value="${est.idVaga}">${est.idVaga}</option>                    
+                    <c:if test="${est.disponibilidade == true}">
+                        <option value="${est.idVaga}">${est.idVaga}</option>
+                    </c:if>                                        
                 </c:forEach>
             </select>
             Apartamento
             <select name="apartamento">
                 <c:forEach var="apt" items="${apartamento}">
-                    <option value="${apt.idApartamento}">${apt.predio.nomePredio} ${apt.andarQuarto}°Andar quarto ${apt.numeroQuarto}</option>                    
+                    <c:if test="${apt.disponibilidade == true}">
+                        <option value="${apt.idApartamento}">${apt.predio.nomePredio} ${apt.andarQuarto}°Andar quarto ${apt.numeroQuarto}</option>
+                    </c:if>
                 </c:forEach>
             </select>
             

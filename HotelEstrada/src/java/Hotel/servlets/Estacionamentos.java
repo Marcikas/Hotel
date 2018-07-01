@@ -46,5 +46,11 @@ public class Estacionamentos implements Tarefa{
             Logger.getLogger(Estacionamentos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "WEB-INF/paginas/dashboard.jsp";
+    }    
+    
+    public String finalizaAluguel(HttpServletRequest req, HttpServletResponse resp){
+        //Estacionamento est = new GenericDAO<Estacionamento>(Estacionamento.class).getById(idEst);
+        //est.setDisponibilidade(false);
+        return "WEB-INF/paginas/dashboard.jsp";
     }
 }

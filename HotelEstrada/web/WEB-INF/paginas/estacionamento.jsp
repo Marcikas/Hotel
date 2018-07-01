@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Hotel - Estacionamento</title>
     </head>
     <body>
         <h1>Estacionamentos</h1>
@@ -26,11 +26,38 @@
             Vagas disponiveis
             <select name="estacionamento">
                 <c:forEach var="est" items="${estacionamento}">
-                        <option value="${est.idVaga}">${est.idVaga}</option>                    
+                    <c:if test="${est.disponibilidade == true}">
+                        <option value="${est.idVaga}">${est.idVaga}</option> 
+                    </c:if>    
                 </c:forEach>
             </select>
             <input type="hidden" name="tarefa" value="Estacionamentos">
             <input type="hidden" name="metodo" value="alugaEstacionamento">
             <button type="submit">Alugar</button>
+        </form>
+        <br>
+        <h3>Situação das vagas</h3><br>
+        
+        <table class="table">
+                <thead class="thead-dark">
+                    <tr>                        
+                        <th scope="col">Vaga</th>                          
+                        <th scope="col">Status</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="est" items="${estacionamento}">
+                        <tr>   
+                        <form action="Controller">
+                            <td> ${est.idVaga}</td>
+                            <c:choose>
+                                <c:when test="${est.disponibilidade == false}"><td>OCUPADA</td></c:when>
+                                <c:otherwise><td>DISPONIVEL</td></c:otherwise>
+                            </c:choose>                          
+                        </form>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table><br><br>
     </body>
 </html>

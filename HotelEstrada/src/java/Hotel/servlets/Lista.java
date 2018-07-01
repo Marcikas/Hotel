@@ -37,12 +37,12 @@ public class Lista implements Tarefa{
         return "/WEB-INF/paginas/lista.jsp";
     }
     
-    public String atualizaSessao(HttpServletRequest req, HttpServletResponse resp){
+    public String atualizaSessao(HttpServletRequest req, HttpServletResponse resp) throws SQLException{
         List<Apartamento> apt = null;        
         List<Estacionamento> est = null;
         
-        apt = new GenericDAO<Apartamento>(Apartamento.class).getDisponiveis();
-        est = new GenericDAO<Estacionamento>(Estacionamento.class).getDisponiveis();
+        apt = new GenericDAO<Apartamento>(Apartamento.class).getTodos();
+        est = new GenericDAO<Estacionamento>(Estacionamento.class).getTodos();
         
         HttpSession session = req.getSession();        
         session.setAttribute("apartamento", apt);        
