@@ -57,7 +57,7 @@ public class GenericDAO<T> {
             return t;
         }
         
-        public List<T> getDisponiveis(){
+       /* public List<T> getDisponiveis(){
             EntityManager em = new JPAUtil().getEntityManager();
             CriteriaQuery<T> query = em.getCriteriaBuilder().createQuery(classe);
             Root<T> from = query.from(classe);
@@ -66,7 +66,7 @@ public class GenericDAO<T> {
             List<T> lista = em.createQuery(query).getResultList();
             em.close();
             return lista;
-        }
+        } */
         
          
 }
