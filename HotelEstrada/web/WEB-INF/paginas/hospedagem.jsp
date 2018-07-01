@@ -21,6 +21,8 @@
             <span>Clique aqui para fazer o check out: </span>
             Data de Saída: <input type="date" name="dataSaida">
             
+            <span>Digite aqui o valor da diária: </span>
+            <input type="number" name="diaria">
             <input type="hidden" value="NovaHospedagem" name="tarefa">
             <input type="hidden" value="validarHospedagem" name="metodo">
             <input type="hidden"  value="${reserva.idReserva}" name="id">

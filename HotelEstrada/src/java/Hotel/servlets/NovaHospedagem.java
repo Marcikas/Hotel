@@ -73,6 +73,7 @@ public class NovaHospedagem extends HttpServlet implements Tarefa {
         String dataEntrada = req.getParameter("dataEntrada");
         String dataSaida = req.getParameter("dataSaida");
         Long id = Long.parseLong(req.getParameter("id"));
+        Long valorDiaria = Long.parseLong(req.getParameter("diaria"));
         Reserva res = new GenericDAO<Reserva>(Reserva.class).getById(id);
 
         dataEntrada = dataEntrada.replace('-', '/');
@@ -91,7 +92,7 @@ public class NovaHospedagem extends HttpServlet implements Tarefa {
 
             long diarias = (epochSaida - epochEntrada) / 86400;
 
-            long valorTotal = (diarias * 200);
+            long valorTotal = (diarias * valorDiaria);
             
             Hospedagem hospedagem =  new Hospedagem();
             hospedagem.setConsumo(null);;
