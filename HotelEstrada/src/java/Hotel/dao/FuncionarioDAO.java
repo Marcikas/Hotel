@@ -6,6 +6,7 @@
 package Hotel.dao;
 
 import Hotel.beans.Funcionario;
+import Hotel.beans.Recepcionista;
 import java.sql.SQLException;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -42,5 +43,10 @@ public class FuncionarioDAO {
         return null;
     }
     
-    
+    public void comissao(Recepcionista r){
+        entityManager.getTransaction().begin();
+                
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
 }

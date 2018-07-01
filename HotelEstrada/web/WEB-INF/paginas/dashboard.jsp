@@ -84,5 +84,10 @@
         <h2>Estacionamento</h2><br><br>
         
         <a href="Controller?tarefa=Estacionamentos&metodo=redirect">Pagina de estacionamento</a>
+        
+        <c:if test="${funcionarioLogado.nivelAcesso == 1}">        
+            <h2>Gerência</h2><br><br>        
+            <a href="Controller?tarefa=Gerencia">Pagina Administrativa</a>        
+        </c:if>         
     </body>
 </html>

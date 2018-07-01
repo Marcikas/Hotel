@@ -22,6 +22,7 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name="idHospede", referencedColumnName="idPessoa")
 public class Hospede extends Pessoa{
     private String observacao;
+    private int qtdHospedagens;
     
     @OneToOne
     @JoinColumn(name="idVaga", nullable = true)
@@ -41,6 +42,14 @@ public class Hospede extends Pessoa{
 
     public void setEstacionamento(Estacionamento estacionamento) {
         this.estacionamento = estacionamento;
+    }
+
+    public int getQtdHospedagens() {
+        return qtdHospedagens;
+    }
+
+    public void setQtdHospedagens(int qtdHospedagens) {
+        this.qtdHospedagens = qtdHospedagens;
     }
     
     
