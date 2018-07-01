@@ -69,7 +69,7 @@ public class NovaHospedagem extends HttpServlet implements Tarefa {
         
     }
 
-    public String validarHospedagem(HttpServletRequest req, HttpServletResponse resp) {
+    public String validarHospedagem(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
         String dataEntrada = req.getParameter("dataEntrada");
         String dataSaida = req.getParameter("dataSaida");
         Long id = Long.parseLong(req.getParameter("id"));
@@ -99,6 +99,7 @@ public class NovaHospedagem extends HttpServlet implements Tarefa {
             hospedagem.setDataSaida(endDate);
             hospedagem.setValorTotal(valorTotal);
             hospedagem.setReserva(res);
+            new GenericDAO<Hospedagem>(Hospedagem.class).adiciona(hospedagem);
             System.out.println("Quantidade de Dias: " + diarias);
             System.out.println("Valor a ser pago pelas diarias: " + valorTotal);
 
