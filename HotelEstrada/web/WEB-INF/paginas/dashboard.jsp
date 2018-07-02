@@ -30,7 +30,8 @@
                     </c:if>
                        
                     <c:if test="${funcionarioLogado.nivelAcesso == 1}">
-                       <a href="#linkfunc">Cadastrar Funcionário</a>
+                       <a href="#linkfunc">Cadastrar Funcionário</a> | <a href="Controller?tarefa=Gerencia">Área do Gerente</a> | 
+                       <a href="Controller?tarefa=Estacionamentos&metodo=redirect">Estacionamentos</a><br><br><br><br>
                     </c:if>
 
                 </div>
@@ -58,9 +59,9 @@
             <h2>Fazer reserva</h2><br/><br/>
         <form action="Controller">
             <label for="input6" class="hora2">Hóspede cadastrado: </label>
-            <select name="hospede">
+            <select name="hospede" id="input6">
                 <c:forEach var="hospede" items="${hospede}">
-                    <option id="input6" value="${hospede.id}">${hospede.nome}</option>                    
+                    <option  value="${hospede.id}">${hospede.nome}</option>                    
                 </c:forEach>
             </select><br/><br/>
             <label for="input7" class="hora2">Vaga do estacionamento (opcional):</label>

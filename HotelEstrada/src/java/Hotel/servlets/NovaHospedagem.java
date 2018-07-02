@@ -6,6 +6,7 @@
 package Hotel.servlets;
 
 import Hotel.beans.Apartamento;
+import Hotel.beans.Consumo;
 import Hotel.beans.Estacionamento;
 import Hotel.beans.Hospedagem;
 import Hotel.beans.Hospede;
@@ -67,14 +68,15 @@ public class NovaHospedagem extends HttpServlet implements Tarefa {
             long diarias = (epochSaida - epochEntrada) / 86400;
 
             double valorTotal = (diarias * valorDiaria);
+            //Hospede h = res.getHospede();
+            if(res.getHospede().getQtdHospedagens() == 3){ // desconto se for a terceira hospedagem do cliente
+                valorTotal = valorTotal * 0.90;
+            }
             
             Hospedagem hospedagem =  new Hospedagem();
             hospedagem.setConsumo(null);
             hospedagem.setDataEntrada(startDate);
-            hospedagem.setDataSaida(endDate);
-            if(res.getHospede().getQtdHospedagens() == 3){ // desconto se for a terceira hospedagem do cliente
-                valorTotal = valorTotal * 0.90;
-            }
+            hospedagem.setDataSaida(endDate);            
             hospedagem.setValorTotal(valorTotal);
             hospedagem.setReserva(res);
             new GenericDAO<Hospedagem>(Hospedagem.class).adiciona(hospedagem);
@@ -90,5 +92,9 @@ public class NovaHospedagem extends HttpServlet implements Tarefa {
     
         return "WEB-INF/paginas/dashboard.jsp";
     }
-
+    
+    public String adicionaConsumo(Consumo c){
+        
+        return "";
+    }
 }

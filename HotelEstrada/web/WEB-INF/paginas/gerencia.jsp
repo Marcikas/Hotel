@@ -9,14 +9,19 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="img/icon.png">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Hotel - Gerência</title>
+        <link rel="styleSheet" type="text/css" href="css/style.css" media="screen" >
+        <title>Hotel Estrada Feliz - Dashboard</title>
     </head>
     <body>
-        <h1>Área do Gerente</h1>
-        
-        <h3>Funcionários do hotel</h3>
-        
+        <div class="navbar" ><img src="img/estrada.png"></div>     
+        <br/><br/>
+        <center><h1>Área do Gerente</h1></center>
+        <br/>
+       <center> <h2>Funcionários do hotel</h2></center>
+        <br/><br/>
+        <div class="ListaG">
         <table class="table">
                 <thead class="thead-dark">
                     <tr>                        
@@ -33,5 +38,13 @@
                     </c:forEach>
                 </tbody>
             </table><br><br>
+            
+            <center><button type="submit" class="botao" onclick="history.back()">Voltar</button></center>
+            <br/><br/>
+            
+            </div>
+            
+        <div class="footer2"> </div>
+        
     </body>
 </html>

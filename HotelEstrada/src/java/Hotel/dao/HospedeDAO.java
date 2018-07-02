@@ -26,4 +26,5 @@ public class HospedeDAO {
         entityManager.getTransaction().commit();
         entityManager.close();        
     }
+   
 }

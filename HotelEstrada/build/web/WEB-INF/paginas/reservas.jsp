@@ -39,9 +39,9 @@
                             <td class="itemLista2"> ${reserva.estacionamento.idVaga}</td>
                             <td class="itemLista2"> ${reserva.recepcionista.nome}</td>
                             <td class="itemLista2">
-                                <a href="Controller?tarefa=NovaHospedagem&id=<c:out value="${reserva.idReserva}"/>">Check-in</a>
-                                <a href="Controller?tarefa=Checkout&id=<c:out value="${reserva.idReserva}"/>">Checkout</a>
-                                <a href="Controller?tarefa=NovaReserva&metodo=removerReserva&id=<c:out value="${reserva.idReserva}"/>">Cancelar</a>
+                                <a href="Controller?tarefa=NovaHospedagem&id=<c:out value="${reserva.idReserva}"/>"><font color="blue">Check-in</font></a> | 
+                                <a href="Controller?tarefa=Checkout&id=<c:out value="${reserva.idReserva}"/>"><font color="green">Checkout</font></a>
+                                <a href="Controller?tarefa=NovaReserva&metodo=removerReserva&id=<c:out value="${reserva.idReserva}"/>"><font color="red">Cancelar</font></a>
                             </td>               
                                
                         </form>

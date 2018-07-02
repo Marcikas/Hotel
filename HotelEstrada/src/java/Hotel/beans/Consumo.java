@@ -24,6 +24,8 @@ public class Consumo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idConsumo;
+    
+    private double valorConsumo;
 
     @OneToMany
     private Set<Produto> produto;
@@ -36,6 +38,14 @@ public class Consumo implements Serializable {
         this.idConsumo = idConsumo;
     }
 
+    public double getValorConsumo() {
+        return valorConsumo;
+    }
+
+    public void setValorConsumo(double valorConsumo) {
+        this.valorConsumo = valorConsumo;
+    }    
+    
     public Set<Produto> getProduto() {
         return produto;
     }
