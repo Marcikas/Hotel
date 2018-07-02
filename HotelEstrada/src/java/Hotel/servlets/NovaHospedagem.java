@@ -13,8 +13,7 @@ import Hotel.beans.Recepcionista;
 import Hotel.beans.Reserva;
 import Hotel.dao.GenericDAO;
 import Hotel.dao.HospedeDAO;
-import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -67,7 +66,7 @@ public class NovaHospedagem extends HttpServlet implements Tarefa {
 
             long diarias = (epochSaida - epochEntrada) / 86400;
 
-            long valorTotal = (diarias * valorDiaria);
+            double valorTotal = (diarias * valorDiaria);
             
             Hospedagem hospedagem =  new Hospedagem();
             hospedagem.setConsumo(null);

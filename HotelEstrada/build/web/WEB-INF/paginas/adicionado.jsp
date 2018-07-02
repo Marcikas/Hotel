@@ -7,11 +7,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head>        
+        <link rel="styleSheet" type="text/css" href="css/style.css" media="screen" >
+        <link rel="icon" href="img/icon.png">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Hotel Estrada Feliz - Cadastro concluído</title>
     </head>
     <body>
-        <h1>${pessoa.nome} adicionado com sucesso!</h1>
+        <div class="navbar" ><img src="img/estrada.png"></div>
+       <div class="login"> <h3>${pessoa.nome} foi adicionado com sucesso!</h3> 
+      <button type="submit" class="botao" onclick="history.back()">Voltar</button>
+       </div>
     </body>
 </html>
