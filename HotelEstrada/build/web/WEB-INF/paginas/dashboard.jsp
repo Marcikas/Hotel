@@ -42,42 +42,43 @@
         
         <br><br><hr><br><br>
         
-        <h2>Fazer reserva</h2><br><br>
-        <form action="Controller">
-            Hospede cadastrado
-            <select name="hospede">
-                <c:forEach var="hospede" items="${hospede}">                    
-                    <option value="${hospede.id}">${hospede.nome}</option>                    
-                </c:forEach>
-            </select>
-            Vaga do estacionamento(opcional)
-            <select name="estacionamento">
-                <c:forEach var="est" items="${estacionamento}">
-                    <c:if test="${est.disponibilidade == true}">
-                        <option value="${est.idVaga}">${est.idVaga}</option>
-                    </c:if>                                        
-                </c:forEach>
-            </select>
-            Apartamento
-            <select name="apartamento">
-                <c:forEach var="apt" items="${apartamento}">
-                    <c:if test="${apt.disponibilidade == true}">
-                        <option value="${apt.idApartamento}">${apt.predio.nomePredio} ${apt.andarQuarto}°Andar quarto ${apt.numeroQuarto}</option>
-                    </c:if>
-                </c:forEach>
-            </select>
-            
-            <input type="hidden" name="recepcionista" value="${funcionarioLogado.id}">
-            <input type="hidden" name="tarefa" value="NovaReserva">
-            <button type="submit">Enviar</button>
-            
-            <br><br><hr><br><br>
-            
-            <h3>Reservas</h3><br><br>
-            
-            <a href="Controller?tarefa=NovaReserva&metodo=getReservas">Consultar reservas</a>
-        <br><hr><br>
-        
+        <c:if test="${funcionarioLogado.nivelAcesso == 2}">
+            <h2>Fazer reserva</h2><br><br>
+            <form action="Controller">
+                Hospede cadastrado
+                <select name="hospede">
+                    <c:forEach var="hospede" items="${hospede}">                    
+                        <option value="${hospede.id}">${hospede.nome}</option>                    
+                    </c:forEach>
+                </select>
+                Vaga do estacionamento(opcional)
+                <select name="estacionamento">
+                    <c:forEach var="est" items="${estacionamento}">
+                        <c:if test="${est.disponibilidade == true}">
+                            <option value="${est.idVaga}">${est.idVaga}</option>
+                        </c:if>                                        
+                    </c:forEach>
+                </select>
+                Apartamento
+                <select name="apartamento">
+                    <c:forEach var="apt" items="${apartamento}">
+                        <c:if test="${apt.disponibilidade == true}">
+                            <option value="${apt.idApartamento}">${apt.predio.nomePredio} ${apt.andarQuarto}°Andar quarto ${apt.numeroQuarto}</option>
+                        </c:if>
+                    </c:forEach>
+                </select>
+
+                <input type="hidden" name="recepcionista" value="${funcionarioLogado.id}">
+                <input type="hidden" name="tarefa" value="NovaReserva">
+                <button type="submit">Enviar</button>
+
+                <br><br><hr><br><br>
+
+                <h3>Reservas</h3><br><br>
+
+                <a href="Controller?tarefa=NovaReserva&metodo=getReservas">Consultar reservas</a>                
+                <br><hr><br>
+            </c:if>
         <h2>Estacionamento</h2><br><br>
         
         <a href="Controller?tarefa=Estacionamentos&metodo=redirect">Pagina de estacionamento</a>

@@ -11,6 +11,7 @@ import Hotel.beans.Hospedagem;
 import Hotel.beans.Hospede;
 import Hotel.beans.Recepcionista;
 import Hotel.beans.Reserva;
+import Hotel.dao.FuncionarioDAO;
 import Hotel.dao.GenericDAO;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -56,15 +57,17 @@ public class NovaReserva implements Tarefa {
 
             new GenericDAO<Reserva>(Reserva.class).adiciona(reserva);
             new GenericDAO<Apartamento>(Apartamento.class).adiciona(apt);
-            new GenericDAO<Estacionamento>(Estacionamento.class).adiciona(est);
+            new GenericDAO<Estacionamento>(Estacionamento.class).adiciona(est);            
+            new FuncionarioDAO().comissao(recep);
 
         } catch (SQLException ex) {
             Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
 
-        }
-        
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NovaReserva.class.getName()).log(Level.SEVERE, null, ex);
+        }        
             
-            return "WEB-INF/paginas/dashboard.jsp";
+        return "WEB-INF/paginas/dashboard.jsp";
     }
 
     public String validarReserva(HttpServletRequest req, HttpServletResponse resp) {

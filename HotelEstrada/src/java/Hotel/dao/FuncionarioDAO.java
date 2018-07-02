@@ -43,9 +43,11 @@ public class FuncionarioDAO {
         return null;
     }
     
+    // aplica comissão para recepcionista por cada reserva/hospedagem efetuada pela mesma
     public void comissao(Recepcionista r){
         entityManager.getTransaction().begin();
-                
+        r.setSalario(r.getSalario() + 50);
+        entityManager.merge(r);
         entityManager.getTransaction().commit();
         entityManager.close();
     }
