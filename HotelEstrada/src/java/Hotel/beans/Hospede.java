@@ -6,6 +6,8 @@
 package Hotel.beans;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -19,7 +21,12 @@ import javax.persistence.Table;
 @Table(name="Hospede")
 @PrimaryKeyJoinColumn(name="idHospede", referencedColumnName="idPessoa")
 public class Hospede extends Pessoa{
-    private String observacao;    
+    private String observacao;
+    private int qtdHospedagens;
+    
+    @OneToOne
+    @JoinColumn(name="idVaga", nullable = true)
+    private Estacionamento estacionamento;    
     
     public String getObservacao() {
         return observacao;
@@ -27,6 +34,22 @@ public class Hospede extends Pessoa{
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public Estacionamento getEstacionamento() {
+        return estacionamento;
+    }
+
+    public void setEstacionamento(Estacionamento estacionamento) {
+        this.estacionamento = estacionamento;
+    }
+
+    public int getQtdHospedagens() {
+        return qtdHospedagens;
+    }
+
+    public void setQtdHospedagens(int qtdHospedagens) {
+        this.qtdHospedagens = qtdHospedagens;
     }
     
     

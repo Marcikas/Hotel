@@ -9,35 +9,51 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="img/icon.png">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Página de reservas</title>
+        <link rel="styleSheet" type="text/css" href="css/style.css" media="screen" >
     </head>
     <body>
+        <div class="navbar" ><img src="img/estrada.png"></div>        
+        <br><br><br>
+        <h1><center>Reservas:</center></h1>
         <div class="container"><br>
-            <h3>Reservas: </h3><br><br>
+            <div class="Lista">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>                        
-                        <th scope="col">Apartamento</th>
-                        <th scope="col">Hospede</th>  
-                        <th scope="col">Vaga do estacionamento</th>
-                        <th scope="col">Recepcionista responsavel</th>
+                        <th scope="col" class="itemLista2">Apartamento</th>
+                        <th scope="col" class="itemLista2">Hospede</th>  
+                        <th scope="col" class="itemLista2">Vaga do estacionamento</th>
+                        <th scope="col" class="itemLista2">Recepcionista responsavel</th> 
+                        <th scope="col" class="itemLista2">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="reserva" items="${reservas}">
                         <tr>   
                         <form action="Controller">
-                            <td> ${reserva.apartamento.predio.nomePredio} ${reserva.apartamento.andarQuarto} ${reserva.apartamento.numeroQuarto}</td>
-                            <td> ${reserva.hospede.nome}</td>
-                            <td> ${reserva.estacionamento.idVaga}</td>
-                            <td> ${reserva.recepcionista.nome}</td>                           
-                            <td><a href="Controller?tarefa=NovaHospedagem&id=<c:out value="${reserva.idReserva}"/>">Validar</a></td>                            
+                            <td class="itemLista2"> ${reserva.apartamento.predio.nomePredio} ${reserva.apartamento.andarQuarto} ${reserva.apartamento.numeroQuarto}</td>
+                            <td class="itemLista2"> ${reserva.hospede.nome}</td>
+                            <td class="itemLista2"> ${reserva.estacionamento.idVaga}</td>
+                            <td class="itemLista2"> ${reserva.recepcionista.nome}</td>
+                            <td class="itemLista2">
+                                <a href="Controller?tarefa=NovaHospedagem&id=<c:out value="${reserva.idReserva}"/>"><font color="blue">Check-in</font></a> | 
+                                <a href="Controller?tarefa=Checkout&id=<c:out value="${reserva.idReserva}"/>"><font color="green">Checkout</font></a>
+                                <a href="Controller?tarefa=NovaReserva&metodo=removerReserva&id=<c:out value="${reserva.idReserva}"/>"><font color="red">Cancelar</font></a>
+                            </td>               
+                               
                         </form>
                         </tr>
                     </c:forEach>
                 </tbody>
-            </table><br><br>             
+            </table><br><br>    
+            <br/><br/>
+               <center><button type="submit" class="botao" onclick="history.back()">Voltar</button></center>
+               <br/><br/>
+               
+               </div>
         </div>
     </body>
 </html>

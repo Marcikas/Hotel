@@ -6,35 +6,27 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Hotel Estrada FELIZ - Bem vindo!</title>
+        <title>Hotel Estrada Feliz - Bem vindo!</title>
+         <link rel="styleSheet" type="text/css" href="css/style.css" media="screen" >
+         <link rel="icon" href="img/icon.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>        
-        <h2>Funcionário faça seu login!</h2><br><br>
+    <body>
+            <div class="navbar" ><img src="img/estrada.png"></div>        
+        <br><br><br>
+        <h1><center>Login para Funcionários</center></h1>
+        
+        <div class="login">
+        
         <form action="Controller">
-            Email: <input type="text" name="email">
-            Senha: <input type="password" name="senha">
+            E-mail: <input type="text" name="email" class="camposForm"><br/><br/>
+            Senha: <input type="password" name="senha" class="camposForm"><br/><br/><br/>
             <input type="hidden" name="tarefa" value="Login">
-            <button type="submit">Logar</button>
+            <button type="submit" class="botao">Logar</button>
         </form>
         
-        <br><br><hr><br><br>
+        </div>     
         
-        <h2>Cadastrar funcionarios</h2><br><br>
-        <form action="Controller">
-            Nome: <input type="text" name="nome"><br>
-            cpf: <input type="text" name="cpf"><br>
-            endereço: <input type="text" name="endereco"><br>
-            Data de Nascimento: <input type="date" name="dataNascimento"><br> 
-            Email: <input type="email" name="email"> <br>
-            Senha: <input type="password" name="senha"> <br>
-            <select name="tipo">
-                <option value="gerente">Gerente</option>
-                <option value="recepcionista">Recepcionista</option>
-            </select><br>
-            <input type="hidden" name="tarefa" value="NovaPessoa">
-            <button type="submit">Enviar</button> 
-        </form>
     </body>
 </html>

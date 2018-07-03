@@ -34,7 +34,7 @@ public class Estacionamento implements Serializable {
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataSaida;
     
-    private boolean disponivel;
+    private boolean disponibilidade;
     
     public Long getIdVaga() {
         return idVaga;
@@ -60,16 +60,11 @@ public class Estacionamento implements Serializable {
         this.dataSaida = dataSaida;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
+    public boolean isDisponibilidade() {
+        return disponibilidade;
     }
 
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
-    }
-
-    
-
-    
-    
+    public void setDisponibilidade(boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }    
 }

@@ -9,37 +9,56 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="img/icon.png">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Lista de pessoas</title>
+        <link rel="styleSheet" type="text/css" href="css/style.css" media="screen" >
     </head>
     <body>
-        
+         <div class="navbar" ><img src="img/estrada.png"></div>        
+        <br><br><br>
+        <h1><center>Pessoas cadastradas:</center></h1>
         <div class="container"><br>
-            <h3>Pessoas cadastradas: </h3><br><br>
+           <div class="Lista">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>                        
-                        <th scope="col">Id</th>
-                        <th scope="col">Nome</th>  
-                        <th scope="col">CPF</th>
-                        <th scope="col">Endereço</th>
+                        <th scope="col" class="itemLista">Id</th>
+                        <th scope="col" class="itemLista">Nome</th>  
+                        <th scope="col" class="itemLista">CPF</th>
+                        <th scope="col" class="itemLista">Endereço</th>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="pessoa" items="${pessoa}">
                         <tr>   
                         <form action="Controller">
-                            <td> ${pessoa.id}</td>
-                            <td> ${pessoa.nome}</td>
-                            <td> ${pessoa.cpf}</td>     
-                            <td> ${pessoa.endereco}</td>
-                            <td><a href="Controller?tarefa=Editar&metodo=getEdit&id=<c:out value="${pessoa.id}"/>">Editar</a></td>
-                            <td><a href="Controller?tarefa=Remover&id=<c:out value="${pessoa.id}"/>">Remover</a></td>
+                            <td class="itemLista"> ${pessoa.id}</td>
+                            <td class="itemLista"> ${pessoa.nome}</td>
+                            <td class="itemLista"> ${pessoa.cpf}</td>     
+                            <td class="itemLista"> ${pessoa.endereco}</td>
+                            <td class="itemLista"><a href="Controller?tarefa=Editar&metodo=getEdit&id=<c:out value="${pessoa.id}"/>">
+                                    <font color="blue">Editar </font>
+                                </a></td>
+                            <td class="itemLista"><a href="Controller?tarefa=Remover&id=<c:out value="${pessoa.id}"/>">
+                                <font color="red">    Remover </font>
+                                </a></td>
                         </form>
                         </tr>
+                        <tr></tr>
                     </c:forEach>
+                        
                 </tbody>
-            </table><br><br>             
+            </table>
+               <br/><br/>
+               <center><button type="submit" class="botao" onclick="history.back()">Voltar</button></center>
+               <br/><br/>
+               
+               </div>
+                           
         </div>
+        
+        
+        <div class="footer2"> </div>
     </body>
 </html>

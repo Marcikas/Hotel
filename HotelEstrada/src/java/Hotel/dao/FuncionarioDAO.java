@@ -6,6 +6,7 @@
 package Hotel.dao;
 
 import Hotel.beans.Funcionario;
+import Hotel.beans.Recepcionista;
 import java.sql.SQLException;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -42,5 +43,12 @@ public class FuncionarioDAO {
         return null;
     }
     
-    
+    // aplica comissão para recepcionista por cada reserva/hospedagem efetuada pela mesma
+    public void comissao(Recepcionista r){
+        entityManager.getTransaction().begin();
+        r.setSalario(r.getSalario() + 50);
+        entityManager.merge(r);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
 }

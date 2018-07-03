@@ -1,0 +1,288 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 01/07/2018, 16:18:55
+    Author     : Luca Gama
+*/
+
+body{
+    background-color:#f7f0d2;
+    margin:0;
+    font-family: Arial Rounded MT;
+    position: relative;
+}
+
+a{
+   color: black;
+}
+
+.navbar{
+    background-color:black;
+    width:100%;
+    height:auto;
+    color:white;
+}
+
+.navbar img{
+    width:20%;
+    margin-left: 40%;
+}
+
+.navbar img .logo{
+    width:20%;
+    margin-left: 10%;
+    }
+    
+    .nav2{
+       width: 90%;
+       height:30px;
+       background-color: #333333;
+       border:1px solid black;
+       margin-left:5%;
+       color:white;
+    }
+    
+    .nav2 a{
+        color:white;
+    }
+    
+    .navopcao{
+        padding: 5px;
+         }
+    
+.login, .editar{
+    border:2px solid gray;
+    width:30%;
+    margin-left:35%;
+    margin-top:5%;
+    background-color:white;
+    border-radius:10px;
+    text-align: center;
+    padding-left:20px;
+    padding-top:70px;
+    font-size:20px;
+    font-family:Arial;
+}
+
+.login{
+    height:200px;
+}
+
+.editar{
+    height:230px;
+}
+
+.cadHospForm{
+    position:absolute;
+    border:2px solid gray;
+    width:30%;
+    margin-left:5%;
+    margin-top:2%;
+    height:450px;
+    background-color:white;
+    border-radius:10px;
+    text-align: center;
+    padding-right:20px;
+    padding-top:5px;
+    font-size:17px;
+    font-family:Arial;
+    float:left;
+}
+
+.cadRes{
+    position:absolute;
+    border:2px solid gray;
+    float:left;
+    width:25%;
+    margin-left:40%;
+    margin-top:2%;
+    height:450px;
+    background-color:white;
+    border-radius:10px;
+    text-align: center;
+    padding-right:20px;
+    padding-top:5px;
+    font-size:17px;
+    font-family:Arial;
+}
+
+.consulta{
+    position:absolute;
+    border:2px solid gray;
+    float:left;
+    width:22%;
+    margin-left:70%;
+    margin-top:2%;
+    height:370px;
+    background-color:white;
+    border-radius:10px;
+    text-align: center;
+    padding-top:80px;
+    font-size:17px;
+    font-family:Arial;
+}
+
+.cadFunc{
+    position:absolute;
+    border:2px solid gray;
+    width:86%;
+    margin-left:5%;
+    margin-top:37%;
+    height:480px;
+    background-color:white;
+    border-radius:10px;
+    text-align: center;
+    padding-left:20px;
+    padding-top:20px;
+    font-size:17px;
+    font-family:Arial;
+}
+
+.cadFunc{
+    position:absolute;
+    border:2px solid gray;
+    width:86%;
+    margin-left:5%;
+    margin-top:37%;
+    height:480px;
+    background-color:white;
+    border-radius:10px;
+    text-align: center;
+    padding-left:20px;
+    padding-top:20px;
+    font-size:17px;
+    font-family:Arial;
+}
+
+.Lista, .ListaG, .ListaE1, .ListaE2{
+    position:absolute;
+    border:2px solid gray;
+    heigth:auto;
+    background-color:white;
+    border-radius:10px;
+    text-align: center;
+    padding-left:20px;
+    padding-top:20px;
+    font-size:17px;
+    font-family:Arial;
+}
+
+.Lista{
+    width:70%;
+    margin-left:15%;
+}
+
+.ListaG{
+    width:23%;
+    margin-left:38%;
+}
+
+.ListaE1{
+    width:70%;
+    margin-left:15%;
+    
+}
+
+.ListaE2{
+    width:23%;
+    margin-left:38%;
+    margin-top: 20%; 
+}
+
+
+.itemLista{
+    width:130px;
+    float:left;
+    height:auto;
+    position:relative;
+}
+
+.itemLista2{
+    width:180px;
+    float:left;
+    height:auto;
+    position:relative;
+}
+
+.itemLista3{
+    width:300px;
+    float:left;
+    height:auto;
+    position:relative;
+}
+
+input, select{
+    width:150px;
+    height:20px;
+    border-radius:3px;
+}
+
+input{
+    border-color:#f2f2f2;
+}
+
+select{
+    border-color:black;
+}
+
+label.hora {
+
+    display: inline-block;
+    width: 190px;
+}
+
+label.hora2 {
+
+    display: inline-block;
+    width: 250px;
+}
+
+
+
+.botao{
+    background-color:green;
+    border-radius: 5px;
+    border-color: green;
+    color:white;
+    width:100px;
+    height:30px;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.botao2{
+    background-color:#ff6666;
+    border-radius: 5px;
+    border-color: #ff3333;
+    color:white;
+    width:200px;
+    height:30px;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.botao3{
+    background-color:#ff6666;
+    border-radius: 5px;
+    border-color: #ff3333;
+    color:white;
+    width:100px;
+    height:30px;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.hide{
+    display: none;
+}
+
+.footer{
+   padding:550px;
+}
+
+.footer2{
+   padding:310px;
+}
